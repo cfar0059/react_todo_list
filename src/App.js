@@ -45,13 +45,31 @@ class App extends Component {
         });
     }
 
+    // Add Todo
+    addTodo = (title) => {
+        const newTodo = {
+            id: 4,
+            title: title,
+            completed: false
+        }
+        this.setState({
+            todos: [...this.state.todos, newTodo]
+        });
+    }
+
     render() {
         return (
             <div className="App">
                 <div className="container">
                     <Header/>
-                    <AddTodo/>
-                    <Todos todos={this.state.todos} markComplete={this.markComplete} delTodo={this.delTodo}/>
+                    <AddTodo
+                        addTodo={this.addTodo}
+                    />
+                    <Todos
+                        todos={this.state.todos}
+                        markComplete={this.markComplete}
+                        delTodo={this.delTodo}
+                    />
                 </div>
             </div>
         );
